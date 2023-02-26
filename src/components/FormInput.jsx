@@ -5,9 +5,11 @@ const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
   const { label, errorMessage, onChange, id, ...inputProps } = props;
 
-  const handleFocus = (e) => {
+  const focusHandler = (e) => {
     setFocused(true);
   };
+
+  console.log('focused :>> ', focused);
 
   return (
     <StyledFormInput>
@@ -15,7 +17,7 @@ const FormInput = (props) => {
       <input
         {...inputProps}
         onChange={onChange}
-        onBlur={handleFocus}
+        onBlur={focusHandler}
         onFocus={() =>
           inputProps.name === "confirmPassword" && setFocused(true)
         }
