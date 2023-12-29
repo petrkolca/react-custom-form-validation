@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { StyledFormInput } from "./styles/FormInput.styled";
 
-const FormInput = (props) => {
+const FormInput = ({ label, errorMessage, onChange, ...inputProps }) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, id, ...inputProps } = props;
+  // const { label, errorMessage, onChange, id, ...inputProps } = props;
 
   const focusHandler = (e) => {
     setFocused(true);
@@ -23,7 +23,7 @@ const FormInput = (props) => {
         }
         focused={focused.toString()}
       />
-      <span>{errorMessage}</span>
+      {errorMessage && <span>{errorMessage}</span>}
     </StyledFormInput>
   );
 };
